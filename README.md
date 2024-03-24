@@ -82,7 +82,3 @@ In this diagram, Ping Smuggler bypasses the firewall by sending encrypted payloa
 
 ### Disclaimer
 Please use Ping Smuggler responsibly and only in accordance with applicable laws and regulations. Unauthorized or malicious use of this tool may result in legal consequences.
-
-```typescript
-This README.md file now includes the updated diagram illustrating how Ping Smuggler can bypass firewalls while exfiltrating data from private networks. If you have any further suggestions or requests for modifications, please let me know!
-```
