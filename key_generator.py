@@ -9,7 +9,9 @@ def generate_aes_key(size=16):
 
 
 argparser = argparse.ArgumentParser(description="AES key generator")
-argparser.add_argument("-s", "--size", type=int, default=16, help="Key size in bytes (16, 24, or 32)")
+argparser.add_argument(
+    "-s", "--size", type=int, default=16, help="Key size in bytes (16, 24, or 32)"
+)
 args = argparser.parse_args()
 
 if args.size not in [16, 24, 32]:

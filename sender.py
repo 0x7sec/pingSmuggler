@@ -13,7 +13,7 @@ try:
 
 except ImportError:
     print("Error: Required modules not found.")
-    if input("Do you want to install the required modules? (Y/n)").lower() != 'n':
+    if input("Do you want to install the required modules? (Y/n)").lower() != "n":
         if os.path.exists("requirements.txt"):
             os.system("pip install -r requirements.txt")
             exit(1)
@@ -31,7 +31,7 @@ def read_file_chunks(file_path, chunk_size=16):
     """
     chunks = []
     try:
-        with open(file_path, 'rb') as file:
+        with open(file_path, "rb") as file:
             while True:
                 chunk = file.read(chunk_size)
                 if not chunk:
@@ -115,7 +115,7 @@ def main():
     if len(key) not in [16, 24, 32]:
         print("Error: Invalid key size. Key must be 16, 24, or 32 bytes long for AES.")
         exit(1)
-    key = key.encode('utf-8')
+    key = key.encode("utf-8")
     send_icmp_packets(chunks, dst_ip, key)
 
 

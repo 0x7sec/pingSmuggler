@@ -10,7 +10,7 @@ try:
     from scapy.all import sniff, ICMP, wrpcap
 except ImportError:
     print("Error: Required modules not found.")
-    if input("Do you want to install the required modules? (Y/n)").lower() != 'n':
+    if input("Do you want to install the required modules? (Y/n)").lower() != "n":
         if os.path.exists("requirements.txt"):
             os.system("pip install -r requirements.txt")
             exit(1)
@@ -61,8 +61,8 @@ def process_packet(packet, key, output_cap, output_txt):
             packet_count += 1
             decrypted_data = decrypt_chunk(icmp_data, key)
             if decrypted_data:
-                print("Decrypted chunk:", decrypted_data.decode('utf-8'))
-                with open(output_txt, 'ab') as f:
+                print("Decrypted chunk:", decrypted_data.decode("utf-8"))
+                with open(output_txt, "ab") as f:
                     f.write(decrypted_data)
                 wrpcap(output_cap, packet, append=True)
 
@@ -82,7 +82,10 @@ def main():
         exit(1)
 
     print("Starting packet capture...")
-    sniff(filter="icmp", prn=lambda x: process_packet(x, key.encode('utf-8'), output_cap, output_txt))
+    sniff(
+        filter="icmp",
+        prn=lambda x: process_packet(x, key.encode("utf-8"), output_cap, output_txt),
+    )
     print(f"Number of packets received: {packet_count}")
 
 
